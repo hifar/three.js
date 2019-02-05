@@ -431,7 +431,9 @@ THREE.FBXLoader = ( function () {
 				texture = new THREE.Texture();
 
 			} else {
-
+				if (fileName.indexOf('blob:') === 0 || fileName.indexOf('data:') === 0) {
+				    loader.setPath(undefined);
+				}
 				texture = this.textureLoader.load( fileName );
 
 			}
